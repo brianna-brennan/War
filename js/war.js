@@ -45,11 +45,10 @@ let shuffledDeck, scores, winner, finalResults;
 
 
 /*----- cached element references-----*/
-document.getElementById("draw-card").addEventListener("click", getNewShuffledDeck);
 
 /*----- event listeners -----*/
-
-
+document.getElementById("draw-card").addEventListener("click", drawCard);
+ 
 
 /*----- functions -----*/
 init();
@@ -60,7 +59,6 @@ function init() {
   winner = null;
   finalResults = null;
   render();
-
 }
 
 function render(){
@@ -98,9 +96,14 @@ function getNewShuffledDeck() {
   return newShuffledDeck;
 }
 
-function drawCard(getNewShuffledDeck){
-getNewShuffledDeck.shift();
-}
+  // draw random card 
+  function drawCard(){
+    let drawn = shuffledDeck.shift();
+    console.log(drawn);
+    return drawn;
+};
+
+drawCard(shuffledDeck);
 
 
 
