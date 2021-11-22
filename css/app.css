@@ -1,0 +1,13 @@
+button {
+	background-color: red;
+	/* background-color: rgb(236, 104, 93); */
+	border: none;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 8px;
+	z-index: 1;
+}
