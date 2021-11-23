@@ -25,12 +25,12 @@ const cardLookUp = {
     "A": 14
 }
 
-let playerOne = {
+let player = {
     score: 0,
     currentCard: null,
 }
 
-let playerTwo = {
+let computer = {
     score: 0,
     currentCard: null,
 }
@@ -39,7 +39,7 @@ const masterDeck = buildMasterDeck();
 
 /*----- app's state (variables) -----*/
 
-let shuffledDeck, scores, winner, finalResults;
+let shuffledDeck, scores, winner, finalResults, pDeck, cDeck, pHand, cHand;
 
 /*----- cached element references-----*/
 
@@ -50,12 +50,30 @@ document.getElementById("draw-card").addEventListener("click", drawCard);
 init();
 
 function init() {
-  shuffledDeck = getNewShuffledDeck();
-  scores = 0;
-  winner = null;
-  finalResults = null;
-  render();
+    shuffledDeck = getNewShuffledDeck();
+    pDeck = shuffledDeck.splice(0, 26); //takes 26 cards fromt the deck
+    cDeck = shuffledDeck; //returns the rest of the deck
+    pHand = [];
+    cHand = [];
+    scores = 0;
+    winner = null;
+    finalResults = null;
+    render();
 }
+
+// draw random card 
+function drawCard(){
+  let drawnComputer = cDeck.pop();
+    cHand.push(drawnComputer);
+let drawnPlayer = pDeck.pop();
+pHand.push(drawnPlayer);
+console.log('c', drawnComputer);
+console.log('p', drawnPlayer);
+document.getElementById('computer').className = `card ${drawnComputer.face}`;
+document.getElementById('player').className = `card ${drawnPlayer.face}`;
+};
+
+
 
 function render(){
 shuffledDeck
@@ -91,13 +109,7 @@ function getNewShuffledDeck() {
   return newShuffledDeck;
 }
 
-  // draw random card 
-  function drawCard(){
-    let drawn = shuffledDeck.shift();
-    console.log(drawn);
-    return drawn;
-};
-drawCard(shuffledDeck);
+
 
 
 
