@@ -2,13 +2,11 @@
 //1.1 Define deck of cards with values that indicate what theyre worth 
 //1.2 Define two players, player 1 and 2 as objects each with total score and current card 
 
-
 //2. Upon loading the app should:
 //Button and playing field should load
 // Render a message: 
 //If statement: If player 1 choice is equal to player 2 choice display "tie" message, if player 1 choice
 //is greater than player 2 choice or vice versa display which player wins 
-
 
 //3. Drawing cards:
 //Use an event listener to randomly select a card when the player
@@ -43,12 +41,10 @@ const masterDeck = buildMasterDeck();
 
 let shuffledDeck, scores, winner, finalResults;
 
-
 /*----- cached element references-----*/
 
 /*----- event listeners -----*/
 document.getElementById("draw-card").addEventListener("click", drawCard);
- 
 
 /*----- functions -----*/
 init();
@@ -81,7 +77,6 @@ function buildMasterDeck() {
   return deck;
 }
 
-
 function getNewShuffledDeck() {
   // Create a copy of the masterDeck
   const tempDeck = [...masterDeck];
@@ -102,7 +97,6 @@ function getNewShuffledDeck() {
     console.log(drawn);
     return drawn;
 };
-
 drawCard(shuffledDeck);
 
 
