@@ -39,30 +39,22 @@ const cardLookUp = {
 	A: 14,
 };
 
-let player = {
-	score: 0,
-	currentCard: null,
-};
-
-let computer = {
-	score: 0,
-	currentCard: null,
-};
-
 const masterDeck = buildMasterDeck();
 
 /*----- app's state (variables) -----*/
 
-let shuffledDeck, pDeck, cDeck, pHand, cHand, pPoints, cPoints, winner;
+let shuffledDeck, pDeck, cDeck, pHand, cHand, pPoints, cPoints;
 
 /*----- cached element references-----*/
 
 let message = document.getElementById('message');
 let playerScoreEl = document.getElementById('player-score');
 let computerScoreEl = document.getElementById('computer-score');
+let button = document.getElementById('draw-card');
+let winner = document.getElementById('winner');
 
 /*----- event listeners -----*/
-document.getElementById('draw-card').addEventListener('click', drawCard);
+button.addEventListener('click', drawCard);
 
 /*----- functions -----*/
 init();
@@ -75,7 +67,6 @@ function init() {
 	cHand = [];
 	pPoints = 0;
 	cPoints = 0;
-	winner = null;
 	render();
 }
 
@@ -89,9 +80,9 @@ function drawCard() {
 	console.log('p', drawnPlayer);
 	document.getElementById('computer').className = `card ${drawnComputer.face}`;
 	document.getElementById('player').className = `card ${drawnPlayer.face}`;
-	finalWinner();
 	compareCard(drawnComputer.value, drawnPlayer.value);
 }
+
 function compareCard(x, y) {
 	if (x === y) {
 		message.innerHTML = 'Tie!';
@@ -99,18 +90,26 @@ function compareCard(x, y) {
 		cPoints++;
 		computerScoreEl.innerHTML = cPoints;
 		message.innerHTML = 'Computer Wins!';
+		finalWinner();
 	} else {
 		pPoints++;
 		playerScoreEl.innerHTML = pPoints;
 		message.innerHTML = 'Player Wins!';
+		finalWinner();
 	}
 }
 
 function finalWinner() {
-	if (pPoints === 10 && cPoints < 10) {
+	if (pPoints === 10) {
+		winner.innerHTML = 'Game Over! Player Wins!';
 		console.log('Game Over! Player Wins!');
-	} else if (cPoints === 10 || pPoints < 10);
-	console.log('Game Over! Computer Wins!');
+		document.getElementById('draw-card').disabled = true;
+	}
+	if (cPoints === 10) {
+		winner.innerHTML = 'Game Over! Computer Wins!';
+		console.log('Game Over! Computer Wins!');
+		document.getElementById('draw-card').disabled = true;
+	}
 }
 
 function render() {
