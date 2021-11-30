@@ -85,16 +85,16 @@ function drawCard() {
 
 function compareCard(x, y) {
 	if (x === y) {
-		message.innerHTML = 'Tie!';
+		message.innerHTML = 'Tie! Nobody gets a point!';
 	} else if (x > y) {
 		cPoints++;
 		computerScoreEl.innerHTML = cPoints;
-		message.innerHTML = 'Computer Wins!';
+		message.innerHTML = 'Computer gets a point!';
 		finalWinner();
 	} else {
 		pPoints++;
 		playerScoreEl.innerHTML = pPoints;
-		message.innerHTML = 'Player Wins!';
+		message.innerHTML = 'Player gets a point!';
 		finalWinner();
 	}
 }
@@ -102,12 +102,10 @@ function compareCard(x, y) {
 function finalWinner() {
 	if (pPoints === 10) {
 		winner.innerHTML = 'Game Over! Player Wins!';
-		console.log('Game Over! Player Wins!');
 		document.getElementById('draw-card').disabled = true;
 	}
 	if (cPoints === 10) {
 		winner.innerHTML = 'Game Over! Computer Wins!';
-		console.log('Game Over! Computer Wins!');
 		document.getElementById('draw-card').disabled = true;
 	}
 }
