@@ -51,9 +51,35 @@ button {
 #players {
 	display: flex;
 }
-#footer {
+.footer {
 	font-family: Georgia, Times, serif;
-	font-weight: bold;
+	font-weight: bolder;
+	color: rgb(217, 58, 58);
+}
+
+#winner {
+	font-family: Georgia, Times, serif;
+	font-weight: bolder;
+	color: rgb(217, 58, 58);
+	animation: blinkingText 1.2s infinite;
+}
+
+@keyframes blinkingText {
+	0% {
+		color: rgb(217, 58, 58);
+	}
+	49% {
+		color: rgb(217, 58, 58);
+	}
+	60% {
+		color: transparent;
+	}
+	99% {
+		color: transparent;
+	}
+	100% {
+		color: rgb(217, 58, 58);
+	}
 }
 
 #header {
