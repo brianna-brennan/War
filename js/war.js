@@ -145,3 +145,7 @@ function getNewShuffledDeck() {
 	console.log(newShuffledDeck);
 	return newShuffledDeck;
 }
+
+function restart() {
+	location.reload();
+}
