@@ -1,20 +1,3 @@
-//1. Define required constants:
-//1.1 Define deck of cards with values that indicate what theyre worth
-//1.2 Define two players, player 1 and 2 as objects each with total score and current card
-
-//2. Upon loading the app should:
-//Button and playing field should load
-// Render a message:
-//If statement: If player 1 choice is equal to player 2 choice display "tie" message, if player 1 choice
-//is greater than player 2 choice or vice versa display which player wins
-
-//3. Drawing cards:
-//Use an event listener to randomly select a card when the player
-//clicks "draw card" button
-//use math.random to randomly select a card from the cards array
-//loop through if statements to determine winner based on card values
-//if returned true, declare winner
-
 /*----- constants-----*/
 const suits = ['s', 'c', 'd', 'h'];
 const ranks = [
@@ -59,6 +42,7 @@ button.addEventListener('click', drawCard);
 /*----- functions -----*/
 init();
 
+// Initialize necessary elements
 function init() {
 	shuffledDeck = getNewShuffledDeck();
 	pDeck = shuffledDeck.splice(0, 26); //takes 26 cards fromt the deck
@@ -70,28 +54,31 @@ function init() {
 	render();
 }
 
-// draw random card
+// Draw random card
 function drawCard() {
 	let drawnComputer = cDeck.pop();
 	cHand.push(drawnComputer);
 	let drawnPlayer = pDeck.pop();
 	pHand.push(drawnPlayer);
-	console.log('c', drawnComputer);
-	console.log('p', drawnPlayer);
+	// The 'face' property maps to the library's CSS classes for cards
 	document.getElementById('computer').className = `card ${drawnComputer.face}`;
 	document.getElementById('player').className = `card ${drawnPlayer.face}`;
+	// Call function to compare the two cards drawn
 	compareCard(drawnComputer.value, drawnPlayer.value);
 }
 
+// Function to compare both cards
 function compareCard(x, y) {
 	if (x === y) {
 		message.innerHTML = 'Tie! Nobody gets a point!';
 	} else if (x > y) {
+		//Add a point to the player score and display on screen
 		cPoints++;
 		computerScoreEl.innerHTML = cPoints;
 		message.innerHTML = 'Computer gets a point!';
 		finalWinner();
 	} else {
+		//Add a point to the player score and display on screen
 		pPoints++;
 		playerScoreEl.innerHTML = pPoints;
 		message.innerHTML = 'Player gets a point!';
@@ -99,9 +86,12 @@ function compareCard(x, y) {
 	}
 }
 
+// Winning comdition function
 function finalWinner() {
 	if (pPoints === 10) {
+		//Message displayed if condition is met
 		winner.innerHTML = 'Game Over! Player Wins!';
+		//Button disabled if comdition is met
 		document.getElementById('draw-card').disabled = true;
 	}
 	if (cPoints === 10) {
@@ -110,6 +100,7 @@ function finalWinner() {
 	}
 }
 
+//Call the shuffled deck
 function render() {
 	shuffledDeck;
 }
@@ -144,6 +135,7 @@ function getNewShuffledDeck() {
 	return newShuffledDeck;
 }
 
+//Reload the page
 function restart() {
 	location.reload();
 }
