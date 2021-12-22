@@ -20,6 +20,6 @@ Click to try it out: (https://brianna-brennan.github.io/War/)
 ## Icebox Items
 
 -Responsive Design.
--Add a true "War" function in the game (when both players draw the same card, the game would promt them to draw 3 each and whoever has the highest of the three wins that round).
+-Add a true "War" function in the game (when both players draw the same card, the game would prompt them to draw 3 each and whoever has the highest of the three wins that round).
 -Add a card collecting function so that everytime a player wins a round, they collect the cards.
 -Update the winning logic so that the winner is whoever collects all the cards.
