@@ -25,18 +25,18 @@ button {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 12px;
+	font-size: 1rem;
 	font-family: 'Press Start 2P', cursive;
 	font-weight: bolder;
-	border-radius: 8px;
+	border-radius: 1rem;
 	z-index: 1;
-	box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0.5rem rgba(0, 0, 0, 0.2);
 }
 h1 {
 	margin: 0;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
-	text-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+	text-shadow: 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
 }
 
 #new-game:hover,
@@ -56,16 +56,15 @@ h1 {
 
 #players {
 	display: flex;
-	font-size: 20px;
+	font-size: 1rem;
 	color: rgb(248, 211, 177);
 }
 
 #header {
 	color: orangered;
 	text-align: center;
-	font-size: 30px;
+	font-size: 1.5rem;
 	font-family: 'Press Start 2P', cursive;
-	margin: 0em;
 }
 
 #instruct {
@@ -130,4 +129,10 @@ h1 {
 
 #buttons {
 	padding: 1em;
+}
+
+@media all and (min-width: 390px) and (max-width: 768px) {
+}
+
+@media all and (max-width: 415px) {
 }
